@@ -13,7 +13,8 @@ class CreateVerbasIndenizatoriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('verba_indenizatorias', function (Blueprint $table) {
+        Schema::create('verba_indenizatorias', function (Blueprint $table) 
+        {
             $table->id();
             $table->string('deputado_ids');
             $table->string('mes');
