@@ -9,4 +9,5 @@ class VerbaIndenizatoria extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $table = 'verba_indenizatorias';
 }

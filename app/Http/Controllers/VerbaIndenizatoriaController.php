@@ -10,10 +10,10 @@ class VerbaIndenizatoriaController extends Controller
     /**
      * Acessa o banco das verbas indenizatorias
      *
-     * @return VerbasIndenizatorias:all
+     * @return VerbasIndenizatorias:all()
      */
-    public function retornaVerbasIndenizatorias()
+    public function retornaVerbaIndenizatorias()
     {
-        echo " Verbas indenizatorias Funcionou";
+        return VerbaIndenizatoria::all();
     }
 }

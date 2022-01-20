@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\RedeSociail;
+use App\Models\RedeSocial;
 
 class RedeSocialController extends Controller
 {
     /**
      * Acessa o banco das redes sociais
      *
-     * @return RedesSociais:all
+     * @return RedeSocial::all()
      */
-    public function retornaRedesSociais()
+    public function retornaRedeSociais()
     {
-        echo "Redes Sociais funcionou";
+        return RedeSocial::all();
     }
 }
