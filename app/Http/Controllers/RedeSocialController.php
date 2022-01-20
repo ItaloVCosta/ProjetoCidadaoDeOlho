@@ -10,7 +10,7 @@ class RedeSocialController extends Controller
     /**
      * Acessa o banco das redes sociais
      *
-     * @return RedeSocial::all()
+     * @return \App\Models\RedeSocial
      */
     public function retornaRedeSociais()
     {

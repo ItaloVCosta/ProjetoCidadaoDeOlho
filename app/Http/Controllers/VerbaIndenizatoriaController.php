@@ -10,7 +10,7 @@ class VerbaIndenizatoriaController extends Controller
     /**
      * Acessa o banco das verbas indenizatorias
      *
-     * @return VerbasIndenizatorias:all()
+     * @return App\Models\VerbaIndenizatoria\
      */
     public function retornaVerbaIndenizatorias()
     {
