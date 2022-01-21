@@ -15,8 +15,8 @@ use App\Http\Controllers\VerbaIndenizatoriaController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('redesociais',[RedeSocialController::class,'retornaRedeSociais']);
-Route::get('verbaindenizatorias',[VerbaIndenizatoriaController::class,'retornaVerbaIndenizatorias']);
+Route::get('redesociais',[RedeSocialController::class,'index']);
+Route::get('verbaindenizatorias',[VerbaIndenizatoriaController::class,'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -12,7 +12,7 @@ class VerbaIndenizatoriaController extends Controller
      *
      * @return App\Models\VerbaIndenizatoria\
      */
-    public function retornaVerbaIndenizatorias()
+    public function index()
     {
         return VerbaIndenizatoria::all();
     }

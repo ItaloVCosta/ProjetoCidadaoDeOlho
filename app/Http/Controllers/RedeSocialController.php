@@ -12,7 +12,7 @@ class RedeSocialController extends Controller
      *
      * @return \App\Models\RedeSocial
      */
-    public function retornaRedeSociais()
+    public function index()
     {
         return RedeSocial::all();
     }
