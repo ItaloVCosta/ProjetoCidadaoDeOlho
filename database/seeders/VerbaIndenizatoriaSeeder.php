@@ -8,7 +8,7 @@ use App\Models\VerbaIndenizatoria;
 class VerbaIndenizatoriaSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Roda a seed do banco de dados
      *
      * @return void
      */
@@ -21,4 +21,5 @@ class VerbaIndenizatoriaSeeder extends Seeder
             'reembolso_valores' =>  1561
         ]);
     }
+    
 }
