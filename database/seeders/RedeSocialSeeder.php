@@ -20,14 +20,14 @@ class RedeSocialSeeder extends Seeder
         for($i=0;$i<8;$i++)
         {
             RedeSocial::create([
-                'rede_nomes' => $usoDasRedes[$i]["NOME"],
+                'rede_nomes' => $usoDasRedes[$i]["nome"],
                 'quantidade_usuarios' => $usoDasRedes[$i]["usuarios"]
             ]); 
         }
     }
 
     /**
-     * Preenche um array de dados para ser enviados para o banco de dados
+     * Preenche um array de dados como o numero de usuario de cada Rede Social
      * 
      * @return array
      */
@@ -35,14 +35,14 @@ class RedeSocialSeeder extends Seeder
     {
         $deputados = ALMG::consultarDeputado();
         $usoDasRedes = array(
-            array("ID"=>0, "NOME"=>"Instagram",   "usuarios"=>0),
-            array("ID"=>1, "NOME"=>"Facebook",   "usuarios"=>0),
-            array("ID"=>2, "NOME"=>"SoundCloud",   "usuarios"=>0),
-            array("ID"=>3, "NOME"=>"Twitter",   "usuarios"=>0),
-            array("ID"=>4, "NOME"=>"Youtube",   "usuarios"=>0),
-            array("ID"=>5, "NOME"=>"WhatsApp",   "usuarios"=>0),
-            array("ID"=>6, "NOME"=>"Flickr",   "usuarios"=>0),
-            array("ID"=>7, "NOME"=>"LinkedIn",   "usuarios"=>0),
+            array("ID"=>0, "nome"=>"Instagram",   "usuarios"=>0),
+            array("ID"=>1, "nome"=>"Facebook",   "usuarios"=>0),
+            array("ID"=>2, "nome"=>"SoundCloud",   "usuarios"=>0),
+            array("ID"=>3, "nome"=>"Twitter",   "usuarios"=>0),
+            array("ID"=>4, "nome"=>"Youtube",   "usuarios"=>0),
+            array("ID"=>5, "nome"=>"WhatsApp",   "usuarios"=>0),
+            array("ID"=>6, "nome"=>"Flickr",   "usuarios"=>0),
+            array("ID"=>7, "nome"=>"LinkedIn",   "usuarios"=>0),
         
         );
         
