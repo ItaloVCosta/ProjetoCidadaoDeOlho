@@ -50,7 +50,7 @@ Antes de popular o banco de dados, é necessário inserir alguns comandos no cmd
 
  - `composer update`
  - `composer require guzzlehttp/guzzle`
- - `php artisan migrate` 
+ - `php artisan migrate` (Caso de o alerta Application In Production!) certifique das configurações do banco no arquivo.env
 
 Se não estiver criado, em *\database* inicie o arquivo *database.sqlite*. **Detalhe importante, o banco de dados tem que estar vazio!**
 Para poder popular o banco digite `php artisan db:seed`. Em seguida rode o server com `php artisan serve`. Depois de todos esses passos, já é possível consultar a API através de um método GET.
