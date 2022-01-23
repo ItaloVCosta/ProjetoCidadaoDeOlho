@@ -16,6 +16,7 @@ use App\Http\Controllers\VerbaIndenizatoriaController;
 |
 */
 Route::get('redesociais',[RedeSocialController::class,'index']);
+
 Route::get('verbaindenizatorias',[VerbaIndenizatoriaController::class,'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -16,7 +16,6 @@ class RedeSocialSeeder extends Seeder
     public function run()
     {
         $usoDasRedes=RedeSocialSeeder::dadosRedesSociais();
-        
         for($i=0;$i<8;$i++)
         {
             RedeSocial::create([
@@ -35,22 +34,19 @@ class RedeSocialSeeder extends Seeder
     {
         $deputados = ALMG::consultarDeputado();
         $usoDasRedes = array(
-            array("ID"=>0, "nome"=>"Instagram",   "usuarios"=>0),
-            array("ID"=>1, "nome"=>"Facebook",   "usuarios"=>0),
-            array("ID"=>2, "nome"=>"SoundCloud",   "usuarios"=>0),
-            array("ID"=>3, "nome"=>"Twitter",   "usuarios"=>0),
-            array("ID"=>4, "nome"=>"Youtube",   "usuarios"=>0),
-            array("ID"=>5, "nome"=>"WhatsApp",   "usuarios"=>0),
-            array("ID"=>6, "nome"=>"Flickr",   "usuarios"=>0),
-            array("ID"=>7, "nome"=>"LinkedIn",   "usuarios"=>0),
-        
-        );
-        
+            array("ID"=>0, "nome" => "Instagram",   "usuarios" => 0),
+            array("ID"=>1, "nome" => "Facebook",   "usuarios" => 0),
+            array("ID"=>2, "nome" => "SoundCloud",   "usuarios" => 0),
+            array("ID"=>3, "nome" => "Twitter",   "usuarios" => 0),
+            array("ID"=>4, "nome" => "Youtube",   "usuarios" => 0),
+            array("ID"=>5, "nome" => "WhatsApp",   "usuarios" => 0),
+            array("ID"=>6, "nome" => "Flickr",   "usuarios" => 0),
+            array("ID"=>7, "nome" => "LinkedIn",   "usuarios" => 0),
+        ); 
         foreach($deputados['list'] as $id)
         {
             $dadoDeputado = ALMG::consultarDadoDeputado($id['id']);
             sleep(1);
-
             foreach($dadoDeputado['deputado']['redesSociais'] as $redeSocial)
             {
                 switch(strtolower($redeSocial['redeSocial']['nome']))
@@ -82,10 +78,8 @@ class RedeSocialSeeder extends Seeder
                 }
             }    
         } 
-    
         $numUsuarios = array_column($usoDasRedes, 'usuarios');
         array_multisort($numUsuarios, SORT_DESC, $usoDasRedes);
-
         return $usoDasRedes;
     }
 }

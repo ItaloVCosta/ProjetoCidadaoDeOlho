@@ -43,14 +43,12 @@ class VerbaIndenizatoriaSeeder extends Seeder
     {
         $deputados = ALMG::consultarDeputado();
         $meses=array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
-        $numeroMes=1;
-        
+        $numeroMes=1;     
         foreach($meses as $mes)
         {   
             $verbasAno[]=array($mes => VerbaIndenizatoriaSeeder::dadosVerbaIndenizatoriaMes($deputados,$numeroMes));
             $numeroMes++;  
         }
-
         return $verbasAno; 
     } 
 
@@ -68,17 +66,14 @@ class VerbaIndenizatoriaSeeder extends Seeder
                 $total=0;
                 $verbaIndenizatoria=ALMG::consultarDadoVerbaIndenizatoria($id['id'],$numeroMes);
                 sleep(1.2);
-
                 foreach($verbaIndenizatoria['list'] as $despesa)
-                    $total+=$despesa['valor'];
+                    $total += $despesa['valor'];
 
-                $verbasMes[]=array("nome"=>$id['nome'],"id"=>$id['id'],"total_reembolso"=>$total);
+                $verbasMes[]=array("nome" => $id['nome'],"id" => $id['id'],"total_reembolso" => $total);
             }
-
             $totalReembolso = array_column($verbasMes, 'total_reembolso');
             array_multisort($totalReembolso, SORT_DESC, $verbasMes);
             array_splice($verbasMes,5,count($verbasMes)-5);
-
             return $verbasMes;
     }
 }
