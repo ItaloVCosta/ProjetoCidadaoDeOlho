@@ -45,7 +45,7 @@ class VerbaIndenizatoriaSeeder extends Seeder
         $meses=array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
         $numeroMes=1;     
         foreach($meses as $mes)
-        {   if($numeroMes==3 || $numeroMes==4)
+        {  
             $verbasAno[]=array($mes => $this->dadosVerbaIndenizatoriaMes($deputados,$numeroMes));
             $numeroMes++;  
         }

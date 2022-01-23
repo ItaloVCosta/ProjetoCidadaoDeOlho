@@ -46,13 +46,13 @@ Na elaboração da API foram criados duas rotas que executam o método get, tamb
 
 ## Rodando o Código
 
-Antes de popular o banco de dados, é necessário inserir alguns comandos no cmg para certificar o correto funcionamento do programa, são eles:
+Antes de popular o banco de dados, é necessário inserir alguns comandos no cmd para certificar o correto funcionamento do programa, são eles:
 
  - `composer update`
  - `composer require guzzlehttp/guzzle`
  - `php artisan migrate` 
 
-Se não estiver criado, em *\database* inicie o arquivo *database.sqlite*. ==Detalhe importante, o banco de dados tem que estar vazio!==
+Se não estiver criado, em *\database* inicie o arquivo *database.sqlite*. **Detalhe importante, o banco de dados tem que estar vazio!**
 Para poder popular o banco digite `php artisan db:seed`. Em seguida rode o server com `php artisan serve`. Depois de todos esses passos, já é possível consultar a API através de um método GET.
 
 Ao rodar o programa o usuário terá que esperar um tempo considerável para rodar o programa, já que não
