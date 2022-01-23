@@ -1,6 +1,7 @@
 <?php
 
 namespace app\WebService;
+use Illuminate\Support\Facades\Http;
 
 class ALMG{
 
@@ -51,23 +52,9 @@ class ALMG{
      */
     public static function solicitaApiALMG($url)
     {
-        $curl = curl_init();
+        $response = Http::get($url);
+        $response->json();
 
-        // Confg do curl
-        curl_setopt_array($curl,[
-            CURLOPT_URL => $url,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CUSTOMREQUEST => 'GET'
-        ]);
-
-        // Resposta
-        $respostaApi = curl_exec($curl);
-
-        // Fechando a conexão
-        curl_close($curl);
-
-        $respostaApiArray = json_decode($respostaApi,true);
-
-        return $respostaApiArray;
+        return $response;
     } 
 }

@@ -16,10 +16,11 @@ class CreateVerbasIndenizatoriasTable extends Migration
         Schema::create('verba_indenizatorias', function (Blueprint $table) 
         {
             $table->id();
-            $table->string('deputado_ids');
-            $table->string('mes');
+            $table->integer('deputado_ids');
+            $table->string('mes',9);
             $table->string('deputado_nomes');
-            $table->string('reembolso_valores')->nullable();
+            $table->decimal('reembolso_valores')->nullable();
+            $table->timestamps();
         });
     }
 

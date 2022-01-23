@@ -15,7 +15,7 @@ class VerbaIndenizatoriaSeeder extends Seeder
      */
     public function run()
     {
-        $verbasAno=VerbaIndenizatoriaSeeder::dadosVerbaIndenizatoriaAno();
+        $verbasAno=$this->dadosVerbaIndenizatoriaAno();
 
         foreach($verbasAno as $mes)
         {      
@@ -39,14 +39,14 @@ class VerbaIndenizatoriaSeeder extends Seeder
      *
      * @return array
      */
-    public function dadosVerbaIndenizatoriaAno()
+    private function dadosVerbaIndenizatoriaAno()
     {
         $deputados = ALMG::consultarDeputado();
         $meses=array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
         $numeroMes=1;     
         foreach($meses as $mes)
-        {   
-            $verbasAno[]=array($mes => VerbaIndenizatoriaSeeder::dadosVerbaIndenizatoriaMes($deputados,$numeroMes));
+        {   if($numeroMes==3 || $numeroMes==4)
+            $verbasAno[]=array($mes => $this->dadosVerbaIndenizatoriaMes($deputados,$numeroMes));
             $numeroMes++;  
         }
         return $verbasAno; 
@@ -59,7 +59,7 @@ class VerbaIndenizatoriaSeeder extends Seeder
      * @param integer $numeroMes
      * @return array
      */
-    public function dadosVerbaIndenizatoriaMes($deputados,$numeroMes)
+    private function dadosVerbaIndenizatoriaMes($deputados,$numeroMes)
     {
         foreach($deputados['list'] as $id)
             {   

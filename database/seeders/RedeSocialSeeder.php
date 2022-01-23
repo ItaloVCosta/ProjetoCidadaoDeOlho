@@ -15,7 +15,7 @@ class RedeSocialSeeder extends Seeder
      */
     public function run()
     {
-        $usoDasRedes=RedeSocialSeeder::dadosRedesSociais();
+        $usoDasRedes=$this->dadosRedesSociais();
         for($i=0;$i<8;$i++)
         {
             RedeSocial::create([
@@ -30,19 +30,19 @@ class RedeSocialSeeder extends Seeder
      * 
      * @return array
      */
-    public function dadosRedesSociais()
+    private function dadosRedesSociais()
     {
         $deputados = ALMG::consultarDeputado();
-        $usoDasRedes = array(
-            array("ID"=>0, "nome" => "Instagram",   "usuarios" => 0),
-            array("ID"=>1, "nome" => "Facebook",   "usuarios" => 0),
-            array("ID"=>2, "nome" => "SoundCloud",   "usuarios" => 0),
-            array("ID"=>3, "nome" => "Twitter",   "usuarios" => 0),
-            array("ID"=>4, "nome" => "Youtube",   "usuarios" => 0),
-            array("ID"=>5, "nome" => "WhatsApp",   "usuarios" => 0),
-            array("ID"=>6, "nome" => "Flickr",   "usuarios" => 0),
-            array("ID"=>7, "nome" => "LinkedIn",   "usuarios" => 0),
-        ); 
+        $usoDasRedes = [
+            ["ID"=>0, "nome" => "Instagram",   "usuarios" => 0],
+            ["ID"=>1, "nome" => "Facebook",   "usuarios" => 0],
+            ["ID"=>2, "nome" => "SoundCloud",   "usuarios" => 0],
+            ["ID"=>3, "nome" => "Twitter",   "usuarios" => 0],
+            ["ID"=>4, "nome" => "Youtube",   "usuarios" => 0],
+            ["ID"=>5, "nome" => "WhatsApp",   "usuarios" => 0],
+            ["ID"=>6, "nome" => "Flickr",   "usuarios" => 0],
+            ["ID"=>7, "nome" => "LinkedIn",   "usuarios" => 0],
+        ]; 
         foreach($deputados['list'] as $id)
         {
             $dadoDeputado = ALMG::consultarDadoDeputado($id['id']);

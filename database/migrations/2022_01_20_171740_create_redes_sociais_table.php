@@ -16,9 +16,9 @@ class CreateRedesSociaisTable extends Migration
         Schema::create('rede_sociais', function (Blueprint $table) 
         {
             $table->id();
-            $table->string('rede_nomes');
+            $table->string('rede_nomes',10)->unique();
             $table->integer('quantidade_usuarios');
-
+            $table->timestamps();
         });
     }
 

@@ -48,7 +48,8 @@ Na elaboração da API foram criados duas rotas que executam o método get, tamb
 
 Antes de popular o banco de dados, é necessário inserir alguns comandos no cmg para certificar o correto funcionamento do programa, são eles:
 
- - `composer uptade`
+ - `composer update`
+ - `composer require guzzlehttp/guzzle`
  - `php artisan migrate` 
 
 Se não estiver criado, em *\database* inicie o arquivo *database.sqlite*. ==Detalhe importante, o banco de dados tem que estar vazio!==
