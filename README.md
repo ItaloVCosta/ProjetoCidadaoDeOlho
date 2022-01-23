@@ -1,66 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Projeto escolhido: Cidadão de Olho 
+**Autor:** Ítalo Vasconcelos Costa
+**E-Mail:** italo.costa99@gmail.com
+## Arquivos Necessários
+Antes de começar a discutir o projeto é de extrema importância que o usuário tenha a versão do [PHP 8.1.1](https://www.php.net/downloads). Altere a php.ini localizada dentro da pasta do php e retire o ; de ;extension=pdo_sqlite, feito isso salve o arquivo.
 
-## About Laravel
+Para a realização dos itens solicitados no projeto foi utilizado o framework Laravel, sendo assim é necessário instala-lo, assim como o [composer](https://getcomposer.org/download/) e inserir as variáveis no sistema.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Após a instalação do composer é necessário, caso o Laravel não esteja instalado, digitar no cmd:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ `Composer global require laravel/installer`    
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Com os arquivos citados instalados, já é possível abrir o projeto .
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Seleção dos Links da API da ALMG
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Previamente a programação do código, foi selecionado os links necessários da ALMG, são eles:
 
-## Laravel Sponsors
+ 1. Deputados do mandato de 2019 (recebendo a relação de nome e ID)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+> http://dadosabertos.almg.gov.br/ws/legislaturas/19/deputados/situacao/1?formato=json
 
-### Premium Partners
+ 2. Verbas indenizatórias (usado para obter os valores dos deputados que mais pediram reembolso em 2019, separado por mês)
+ 
+>http://dadosabertos.almg.gov.br/ws/prestacao_contas/verbas_indenizatorias/legislatura_atual/deputados/{id}/2019/{mes}?formato=json
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+3. Redes Sociais (se encontram no link por id de deputado):
 
-## Contributing
+> http://dadosabertos.almg.gov.br/ws/deputados/[id]?formato=json
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Softwares Utilizados
 
-## Code of Conduct
+O projeto foi feito utilizando o editor de código VScode, além disso, para o teste do retorno do método GET da API utilizado o insomnia. Para a melhor visualização do banco de dados, o SQLiteStudio foi empregado.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Elaboração do Código
 
-## Security Vulnerabilities
+Inicialmente foi criado na pasta de “WebService” o arquivo ALMG.php, sendo uma classe que faz a requisição para a API da ALMG. Nessa classe se encontram funções, uma para cada Link descrito em *Seleção dos Links da API da ALMG*.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Com a comunicação com a API disponível foram trabalhados os dados nos arquivos seeder, um para cada tabela.
+Após os dados trbalhados e organizados foi utilizado o Eloquent para envio dos dados para o banco.
+Para a estruturação da tabela foi criado as migrations um para cada tabela, sendo o total dois.
 
-## License
+Na elaboração da API foram criados duas rotas que executam o método get, também foi criado o controller de cada solicitação que lista os dados de cada tabela da API.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Rodando o Código
+
+Antes de popular o banco de dados, é necessário inserir alguns comandos no cmg para certificar o correto funcionamento do programa, são eles:
+
+ - `composer uptade`
+ - `php artisan migrate` 
+
+Se não estiver criado, em *\database* inicie o arquivo *database.sqlite*. ==Detalhe importante, o banco de dados tem que estar vazio!==
+Para poder popular o banco digite `php artisan db:seed`. Em seguida rode o server com `php artisan serve`. Depois de todos esses passos, já é possível consultar a API através de um método GET.
+
+Ao rodar o programa o usuário terá que esperar um tempo considerável para rodar o programa, já que não
+foi utilizado assync e await para poder otimizar o processo de leitura de dados do API, sendo assim foram colocados delays entre as requisições, dessa forma tornando o programa lento, no PC que estou utilizando o código demorou cerca de 1060 segundos para rodar.
+Após alimentar o banco de dados, é possível consultar a API criada utlizando o mpetodo GET nos links:
+
+ - *http://127.0.0.1:8000/api/redesociaispara* obter o ranking de redes sociais
+ - *http://127.0.0.1:8000/api/verbaindenizatorias* para obter os top 5 deputados que mais pediram reembolso de verbas indenizatórias por mês em 2019.
+
+Atenção ao valor do local host pode variar, no meu caso foi utilizado 127.0.0.1.
