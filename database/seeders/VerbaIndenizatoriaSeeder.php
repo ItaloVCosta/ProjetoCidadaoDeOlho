@@ -16,7 +16,6 @@ class VerbaIndenizatoriaSeeder extends Seeder
     public function run()
     {
         $verbasAno=$this->dadosVerbaIndenizatoriaAno();
-
         foreach($verbasAno as $mes)
         {      
             foreach($mes as $deputados)
